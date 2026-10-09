@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlow | Task Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app">
+
+    <aside class="sidebar">
+      <h2 class="logo">✦ TaskFlow</h2>
+
+      <p class="menu-label">WORKSPACE</p>
+      <nav>
+        <a href="#dashboard" class="nav-link active">▦ Dashboard</a>
+        <a href="#tasks" class="nav-link">☷ My Tasks</a>
+        <a href="#add-task" class="nav-link">＋ Add Task</a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <p>Stay organized.</p>
+        <small>One task at a time.</small>
+      </div>
+    </aside>
+
+    <main class="main-content" id="dashboard">
+
+      <header class="topbar">
+        <div>
+          <p class="greeting">YOUR WORKSPACE</p>
+          <h1>Task Dashboard</h1>
+          <p class="subtitle">Plan your work. Achieve your goals.</p>
+        </div>
+        <div class="date-badge" id="todayDate"></div>
+      </header>
+
+      <section class="stats-grid">
+        <div class="stat-card purple">
+          <span>Total Tasks</span>
+          <h2 id="totalTasks">0</h2>
+          <small>All your tasks</small>
+        </div>
+
+        <div class="stat-card orange">
+          <span>Pending</span>
+          <h2 id="pendingTasks">0</h2>
+          <small>Waiting to be done</small>
+        </div>
+
+        <div class="stat-card blue">
+          <span>In Progress</span>
+          <h2 id="progressTasks">0</h2>
+          <small>Currently working on</small>
+        </div>
+
+        <div class="stat-card green">
+          <span>Completed</span>
+          <h2 id="completedTasks">0</h2>
+          <small>Tasks finished</small>
+        </div>
+      </section>
+
+      <section class="form-card" id="add-task">
+        <div class="section-heading">
+          <div>
+            <h2 id="formHeading">Create a New Task</h2>
+            <p>Add a task to your personal workspace.</p>
+          </div>
+        </div>
+
+        <form id="taskForm">
+          <label for="taskTitle">Task Title *</label>
+          <input
+            type="text"
+            id="taskTitle"
+            placeholder="e.g. Complete Java assignment"
+            maxlength="100"
+            required
+          >
+
+          <label for="taskDescription">Description</label>
+          <textarea
+            id="taskDescription"
+            placeholder="Write a short description..."
+            rows="3"
+            maxlength="500"
+          ></textarea>
+
+          <div class="form-row">
+            <div>
+              <label for="taskPriority">Priority</label>
+              <select id="taskPriority">
+                <option value="Low">Low</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="High">High</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="taskDueDate">Due Date</label>
+              <input type="date" id="taskDueDate">
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="primary-btn" id="submitBtn">
+              + Add Task
+            </button>
+            <button type="button" class="secondary-btn" id="cancelEdit"
+              hidden>
+              Cancel Edit
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section class="tasks-section" id="tasks">
+        <div class="section-heading task-heading">
+          <div>
+            <h2>My Tasks</h2>
+            <p>Manage and track your daily activities.</p>
+          </div>
+        </div>
+
+        <div class="toolbar">
+          <input
+            type="search"
+            id="searchInput"
+            placeholder="Search tasks..."
+          >
+
+          <select id="statusFilter" aria-label="Filter by status">
+            <option value="All">All Statuses</option>
+            <option value="To Do">To Do</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+          </select>
+
+          <select id="priorityFilter" aria-label="Filter by priority">
+            <option value="All">All Priorities</option>
+            <option value="High">High Priority</option>
+            <option value="Medium">Medium Priority</option>
+            <option value="Low">Low Priority</option>
+          </select>
+        </div>
+
+        <div id="taskList" class="task-list"></div>
+      </section>
+
+      <footer>
+        Made with HTML, CSS & JavaScript · TaskFlow
+      </footer>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
